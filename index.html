@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terry Sen | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Remix Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+  <!-- ───────── FLOATING ORBS (background ambiance) ───────── -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- ───────── NAVBAR ───────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="#home">
+        TERRY<span class="logo-accent">ZEN</span><span class="logo-dot">.</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home"    class="nav-link active">Home</a></li>
+        <li><a href="#about"   class="nav-link">About</a></li>
+        <li><a href="#skills"  class="nav-link">Skills</a></li>
+        <li><a href="#projects"class="nav-link">Projects</a></li>
+        <li><a href="#album"   class="nav-link">Album</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ───────── HERO / HOME ───────── -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge glass fade-up">
+        <i class="ri-sparkles-line"></i> Student · Designer · Developer
+      </div>
+      <h1 class="hero-title fade-up delay-1">
+        Halo, Saya <span class="gradient-text">Omar Terry Putra</span>
+      </h1>
+      <p class="hero-sub fade-up delay-2">
+        WEB DEVELOPER | GRAFIS DESAIN | VIDEO EDITING | PHOTO EDITING
+      </p>
+      <div class="hero-cta fade-up delay-3">
+        <a href="#projects" class="btn btn-primary">
+          <i class="ri-eye-line"></i> Lihat Project
+        </a>
+        <a href="mailto:omarterrycareer45@gmail.com" class="btn btn-glass">
+          <i class="ri-mail-send-line"></i> Hubungi Saya
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ───────── ABOUT ───────── -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Get to know me</span>
+        <h2 class="section-title">Tentang <span class="gradient-text">Saya</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <!-- Bio card -->
+        <div class="glass-card about-bio reveal">
+          <div class="about-avatar">
+            <!--
+              PROFILE PHOTO — place your photo at:
+              assets/images/profile.jpg
+              Then uncomment the <img> tag below and remove the emoji div.
+            -->
+            <img src="assets/images/profile.jpg" alt="Terry Sen" class="avatar-img" />
+          </div>
+          <h3 class="about-name">Omar Terry Putra</h3>
+          <p class="about-bio-text">
+          Saya seorang mahasiswa di Horizon University, di
+          Fakultas Ilmu dan Teknologi Komputer.
+          Saya memiliki minat yang besar pada desain grafis dan
+          coding.
+          </p>
+          <div class="about-social">
+            <a href="omarterrycareer45@gmail.com"       class="social-chip" title="Email"><i class="ri-mail-line"></i></a>
+            <a href="https://github.com/TERRYZEN"         class="social-chip" title="GitHub" target="_blank"><i class="ri-github-line"></i></a>
+            <a href="https://www.linkedin.com/in/omar-terry-putra-20735b318"    class="social-chip" title="LinkedIn" target="_blank"><i class="ri-linkedin-line"></i></a>
+            <a href="https://instagram.com/rrymaru"      class="social-chip" title="Instagram" target="_blank"><i class="ri-instagram-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Education + Experience -->
+        <div class="about-details">
+          <!-- Education -->
+          <div class="glass-card reveal delay-1">
+            <div class="card-header">
+              <i class="ri-graduation-cap-line card-icon"></i>
+              <h3>Riwayat Pendidikan</h3>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2026 – Sekarang</span>
+                  <h4>Horizon University</h4>
+                  <p>S1 Informatika</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2022 – 2025</span>
+                  <h4>SMKN 3 KARAWANG</h4>
+                  <p>Teknik Komputer dan Jaringan</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work Experience -->
+          <div class="glass-card reveal delay-2">
+            <div class="card-header">
+              <i class="ri-briefcase-line card-icon"></i>
+              <h3>Riwayat Pekerjaan</h3>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">Oktober 2025 – September 2026</span>
+                  <h4>RINA DENTAL CLINIC</h4>
+                  <p>Digital Marketing & Content Creator</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">Agustus 2024 – Oktober 2024</span>
+                  <h4>PT. ABYS NETWORKING (PRAKERIN)</h4>
+                  <p>Teknisi Jaringan Internet</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">Januari 2024 – April 2024</span>
+                  <h4>PT. Tri Mulia Sejahtera (PRAKERIN)</h4>
+                  <p>Administrasi</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools I Use -->
+      <div class="tools-section reveal">
+        <h3 class="tools-title">Tools &amp; Software I Use</h3>
+        <div class="tools-grid">
+          <!--
+            HOW TO ADD LOGOS:
+            1. Place the logo image in: assets/logos/
+            2. Set src="assets/logos/canva.png" (or .svg, .webp, etc.)
+            3. The <img> tag is already there — just uncomment it and remove the <i> icon.
+          -->
+          <div class="tool-card glass-card reveal">
+            <div class="tool-logo">
+              <img src="assets/logos/canva.png" alt="Canva" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <i class="ri-palette-line tool-fallback" style="display:none"></i>
+            </div>
+            <span class="tool-name">Canva</span>
+          </div>
+          <div class="tool-card glass-card reveal delay-1">
+            <div class="tool-logo">
+              <img src="assets/logos/capcut.png" alt="CapCut" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <i class="ri-scissors-cut-line tool-fallback" style="display:none"></i>
+            </div>
+            <span class="tool-name">CapCut</span>
+          </div>
+          <div class="tool-card glass-card reveal delay-2">
+            <div class="tool-logo">
+              <img src="assets/logos/affinity.webp" alt="Affinity" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <i class="ri-stack-line tool-fallback" style="display:none"></i>
+            </div>
+            <span class="tool-name">Affinity</span>
+          </div>
+          <div class="tool-card glass-card reveal delay-3">
+            <div class="tool-logo">
+              <img src="assets/logos/lightroom.webp" alt="Adobe Lightroom" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <i class="ri-camera-lens-line tool-fallback" style="display:none"></i>
+            </div>
+            <span class="tool-name">Lightroom</span>
+          </div>
+          <div class="tool-card glass-card reveal delay-1">
+            <div class="tool-logo">
+              <img src="assets/logos/snapseed.jpg" alt="Snapseed" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <i class="ri-image-edit-line tool-fallback" style="display:none"></i>
+            </div>
+            <span class="tool-name">Snapseed</span>
+          </div>
+          <div class="tool-card glass-card reveal delay-2">
+            <div class="tool-logo">
+              <img src="assets/logos/picsart.png" alt="PicsArt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <i class="ri-brush-line tool-fallback" style="display:none"></i>
+            </div>
+            <span class="tool-name">PicsArt</span>
+          </div>
+          <div class="tool-card glass-card reveal delay-3">
+            <div class="tool-logo">
+              <img src="assets/logos/vscode.png" alt="VS Code" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <i class="ri-code-s-slash-line tool-fallback" style="display:none"></i>
+            </div>
+            <span class="tool-name">VS Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── SKILLS ───────── -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What I do</span>
+        <h2 class="section-title">Skills <span class="gradient-text">Saya</span></h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category glass-card reveal">
+          <div class="skill-icon"><i class="ri-palette-line"></i></div>
+          <h3>Grafis Desain</h3>
+          <p>Saya cukup mahir dalam membuat visual yang kreatif untuk kebutuhan media sosial, poster, dan brand digital.</p>
+          <div class="skill-tags">
+            <span class="tag">Typography</span>
+            <span class="tag">Branding</span>
+            <span class="tag">Layout</span>
+            <span class="tag">Color Theory</span>
+          </div>
+        </div>
+        <div class="skill-category glass-card reveal delay-1">
+          <div class="skill-icon"><i class="ri-video-line"></i></div>
+          <h3>Video Editing</h3>
+          <p>Saya mempunyai kemampuan dalam hal editing video untuk konten branding, maupun cinematic.</p>
+          <div class="skill-tags">
+            <span class="tag">Transitions</span>
+            <span class="tag">Color Grading</span>
+            <span class="tag">Motion</span>
+            <span class="tag">Storytelling</span>
+          </div>
+        </div>
+        <div class="skill-category glass-card reveal delay-2">
+          <div class="skill-icon"><i class="ri-image-line"></i></div>
+          <h3>Photo Editing</h3>
+          <p>Saya mahir dalam foto editing seperti memperbaiki color grading, memperbagus kembali, dan manupulasi gambar.</p>
+          <div class="skill-tags">
+            <span class="tag">Retouching</span>
+            <span class="tag">Color Correction</span>
+            <span class="tag">Compositing</span>
+          </div>
+        </div>
+        <div class="skill-category glass-card reveal delay-3">
+          <div class="skill-icon"><i class="ri-code-s-slash-line"></i></div>
+          <h3>Web Development</h3>
+          <p>Membangun situs web yang responsif dan modern menggunakan HTML, CSS, dan JavaScript dengan kode yang bersih dan dapat dipelihara.</p>
+          <div class="skill-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill bars -->
+      <div class="skill-bars-wrapper glass-card reveal">
+        <h3 class="bars-title">Kemampuan Saya</h3>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label">
+            <span>Desain Grafis</span><span class="skill-pct">75%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="75"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label">
+            <span>Photo Editing</span><span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="90"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label">
+            <span>Video Editing</span><span class="skill-pct">78%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="78"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label">
+            <span>HTML &amp; CSS</span><span class="skill-pct">75%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="75"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label">
+            <span>JavaScript</span><span class="skill-pct">50%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── PROJECTS ───────── -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">APA YANG SAYA BUAT?</span>
+        <h2 class="section-title">Project <span class="gradient-text">Saya</span></h2>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="filter-tabs reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+        <button class="filter-btn" data-filter="photo">Photo</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="video">Video</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!--
+          HOW TO ADD A PROJECT:
+          1. Place the project image in: assets/projects/
+          2. Copy one of the .project-card divs below
+          3. Update: src, data-category, title, description, and tags
+          4. Optionally set href on the "Live" button
+
+          CATEGORIES: design | photo | web | video
+        -->
+
+        <div class="project-card glass-card reveal" data-category="design">
+          <div class="project-img-wrap">
+            <img src="assets/projects/project1.png" alt="Project 1"
+                 onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-overlay">
+              <a href="#" class="btn btn-sm btn-glass" target="_blank">
+                <i class="ri-eye-line"></i> Lihat
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Design</span>
+            <h3 class="project-title">Social Media</h3>
+            <p class="project-desc">Saya membuat desain untuk media sosial Klinik Gigi</p>
+            <div class="project-tags">
+              <span class="tag">Canva</span>
+              <span class="tag">Branding</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card reveal delay-1" data-category="photo">
+          <div class="project-img-wrap">
+            <img src="assets/projects/project2.png" alt="Project 2"
+                 onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-overlay">
+              <a href="#" class="btn btn-sm btn-glass" target="_blank">
+                <i class="ri-eye-line"></i> Lihat
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Photo</span>
+            <h3 class="project-title">Photography Edit</h3>
+            <p class="project-desc">Portrait retouching and color grading using Lightroom and Snapseed.</p>
+            <div class="project-tags">
+              <span class="tag">Lightroom</span>
+              <span class="tag">Snapseed</span>
+              <span class="tag">LightDistortion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card reveal delay-2" data-category="web">
+          <div class="project-img-wrap">
+            <img src="assets/projects/project3.png" alt="Project 3"
+                 onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-overlay">
+              <a href="https://github.com/TERRYZEN/DompetGueh" class="btn btn-sm btn-glass" target="_blank">
+                <i class="ri-eye-line"></i> Lihat
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Apps</span>
+            <h3 class="project-title">DompetGueh</h3>
+            <p class="project-desc">Aplikasi untuk menghitung pemasukan dan pengeluaran harian kamu.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">Dart</span>
+              <span class="tag">JSON</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card reveal delay-3" data-category="video">
+          <div class="project-img-wrap">
+            <img src="assets/projects/project4.webp" alt="Project 4"
+                 onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-overlay">
+              <a href="#" class="btn btn-sm btn-glass" target="_blank">
+                <i class="ri-eye-line"></i> Lihat
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Video</span>
+            <h3 class="project-title">Karya Film Pendek</h3>
+            <p class="project-desc">Membuat film pendek untuk perlombaan Panen Karya P5 menggunakanCapCut.</p>
+            <div class="project-tags">
+              <span class="tag">CapCut</span>
+              <span class="tag">Motion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card reveal delay-1" data-category="design">
+          <div class="project-img-wrap">
+            <img src="assets/projects/project5.png" alt="Project 5"
+                 onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-overlay">
+              <a href="#" class="btn btn-sm btn-glass" target="_blank">
+                <i class="ri-eye-line"></i>Lihat
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Design</span>
+            <h3 class="project-title">Poster Design</h3>
+            <p class="project-desc">Desain poster promosi, event, dan branding.</p>
+            <div class="project-tags">
+              <span class="tag">Affinity</span>
+              <span class="tag">Typography</span>
+              <span class="tag">Canva</span>
+              <span class="tag">PicsArt</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card reveal delay-2" data-category="photo">
+          <div class="project-img-wrap">
+            <img src="assets/projects/project6.png" alt="Project 6"
+                 onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-overlay">
+              <a href="#" class="btn btn-sm btn-glass" target="_blank">
+                <i class="ri-eye-line"></i> Lihat
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Photo</span>
+            <h3 class="project-title">Photo Manipulation</h3>
+            <p class="project-desc">Creative compositing and digital art using PicsArt and Affinity.</p>
+            <div class="project-tags">
+              <span class="tag">PicsArt</span>
+              <span class="tag">Affinity</span>
+              <span class="tag">Canva</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── ALBUM (Certificates) ───────── -->
+  <section class="section section-alt" id="album">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Achievements</span>
+        <h2 class="section-title">Album <span class="gradient-text">Sertfikat</span></h2>
+        <p class="section-desc">A collection of certificates and achievements I've earned along the way.</p>
+      </div>
+
+      <div class="album-grid" id="albumGrid">
+        <!--
+          HOW TO ADD CERTIFICATES:
+          1. Place the certificate image in: assets/certificates/
+          2. Copy one of the .cert-card divs below
+          3. Update: src, alt, h4 (title), p (issuer & year)
+        -->
+
+        <div class="cert-card glass-card reveal" onclick="openLightbox(this)">
+          <div class="cert-img-wrap">
+            <img src="assets/certificates/cert1.jpeg" alt="Certificate 1"
+                 onerror="this.parentElement.classList.add('no-cert')" />
+            <div class="cert-overlay"><i class="ri-zoom-in-line"></i></div>
+          </div>
+          <div class="cert-info">
+            <h4>Certificate of Competency Assessment</h4>
+            <p>Competency Assessment · 2025</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="ri-close-line"></i></button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Certificate" />
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- ───────── FOOTER ───────── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">
+        TERRY<span class="logo-accent">ZEN</span><span class="logo-dot">.</span>
+      </span>
+      <p class="footer-copy">&copy; 2026 TERRYZEN</p>
+      <div class="footer-socials">
+        <a href="mailto:omarterrycareer45@gmail.com"                                title="Email"><i class="ri-mail-line"></i></a>
+        <a href="https://github.com/TERRYZEN"                                       title="GitHub"    target="_blank"><i class="ri-github-line"></i></a>
+        <a href="https://www.linkedin.com/in/omar-terry-putra-20735b318"            title="LinkedIn"  target="_blank"><i class="ri-linkedin-line"></i></a>
+        <a href="https://instagram.com/rrymaru"                                     title="Instagram" target="_blank"><i class="ri-instagram-line"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+    <i class="ri-arrow-up-line"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
