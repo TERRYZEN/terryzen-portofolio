@@ -19,17 +19,47 @@ window.addEventListener('scroll', () => {
   highlightNav();
 });
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open');
+function toggleMenu(forceState) {
+  const willOpen = typeof forceState === 'boolean' 
+    ? forceState 
+    : !navLinks.classList.contains('open');
+
+  hamburger.classList.toggle('open', willOpen);
+  navLinks.classList.toggle('open', willOpen);
+  hamburger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+}
+
+hamburger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  toggleMenu();
 });
 
 // Close mobile nav when a link is clicked
 allLinks.forEach(link => {
   link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('open');
+    toggleMenu(false);
   });
+});
+
+// Close mobile nav when clicking outside navbar
+document.addEventListener('click', (e) => {
+  if (navLinks.classList.contains('open') && !navbar.contains(e.target)) {
+    toggleMenu(false);
+  }
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+    toggleMenu(false);
+  }
+});
+
+// Reset on screen resize to desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768 && navLinks.classList.contains('open')) {
+    toggleMenu(false);
+  }
 });
 
 function highlightNav() {

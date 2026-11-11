@@ -223,28 +223,6 @@ ul { list-style: none; }
   transform: none;
 }
 
-/* ── MOBILE NAVBAR ── */
-@media (max-width: 768px) {
-  .hamburger { display: none; }
-  .nav-links {
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    background: transparent;
-    max-height: none;
-    overflow: visible;
-    transition: none;
-  }
-  .nav-links.open { max-height: none; transform: none; }
-  .nav-links li { width: auto; }
-  .nav-link {
-    width: auto;
-    text-align: center;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.85rem;
-  }
-}
 .navbar {
   position: fixed;
   top: 1.25rem;
@@ -432,7 +410,7 @@ ul { list-style: none; }
   background: rgba(37,99,235,0.2);
 }
 .avatar-placeholder { font-size: 2.6rem; }
-.avatar-img { width: 100%; height: 100%; object-fit: cover; }
+.avatar-img { width: 180%; height: 180%; object-fit: cover; }
 .about-name { font-family: var(--font-head); font-size: 1.35rem; font-weight: 700; color: var(--blue-1); }
 .about-bio-text { color: rgba(15,23,42,0.6); font-size: 0.9rem; line-height: 1.6; }
 .about-social {
@@ -929,45 +907,172 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .section { padding: 2.25rem 0; }
   .section-header { margin-bottom: 1.25rem; }
-  .hero { padding: 4.8rem 1rem 1.8rem; min-height: auto; }
+  .hero { padding: 5.2rem 1rem 2rem; min-height: auto; }
   .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
 
-  .nav-links {
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    background: transparent;
-    padding: 0;
+  /* ── Mobile Navbar: Docked, Not Floating ── */
+  .navbar {
+    top: 0;
+    left: 0;
+    right: 0;
     transform: none;
-    transition: none;
-    border: none;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    padding: 0.8rem 1.25rem;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
   }
-  .nav-links.open { transform: none; }
+  .navbar.scrolled {
+    transform: none;
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom-color: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  }
+  .nav-container {
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* ── IOS 26 Liquid Glass Toggle Button ── */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4.8px;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    padding: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.25) 100%);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08),
+                inset 0 1.5px 1.5px rgba(255, 255, 255, 0.95),
+                inset 0 -1px 2px rgba(15, 23, 42, 0.04);
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hamburger:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 100%);
+    border-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12),
+                inset 0 1.5px 2px rgba(255, 255, 255, 1);
+  }
+  .hamburger:active {
+    transform: scale(0.92);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.45) 100%);
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 2.2px;
+    background: var(--blue-1);
+    border-radius: 99px;
+    transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+  }
+  .hamburger.open {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.5) 100%);
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 6px 22px rgba(37, 99, 235, 0.18),
+                inset 0 1.5px 2px rgba(255, 255, 255, 1);
+  }
+  .hamburger.open span {
+    background: var(--blue-3);
+  }
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ── IOS 26 Liquid Frosted Glass Dropdown Menu ── */
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 22px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14),
+                inset 0 1.5px 1.5px rgba(255, 255, 255, 0.95),
+                inset 0 -1px 2px rgba(15, 23, 42, 0.04);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.28s;
+    z-index: 1001;
+  }
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .nav-links li {
+    width: 100%;
+    list-style: none;
+  }
   .nav-link {
-    color: rgba(15,23,42,0.75);
-    padding: 0.45rem 0.85rem;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 14px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: rgba(15, 23, 42, 0.78);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid transparent;
+    text-align: left;
   }
-  .nav-link:hover {
+  .nav-link:hover,
+  .nav-link:focus {
     color: var(--blue-3);
-    background: rgba(255,255,255,0.14);
+    background: rgba(255, 255, 255, 0.65);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: none;
   }
   .nav-link.active {
     color: var(--blue-3);
-    background: rgba(255,255,255,0.28);
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
-    border: 1px solid rgba(255,255,255,0.55);
-    box-shadow: 0 10px 30px rgba(15,23,42,0.1), inset 0 0 0 1px rgba(255,255,255,0.6);
-    transform: translateY(-2px);
+    font-weight: 600;
+    background: rgba(37, 99, 235, 0.09);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.85);
+    transform: none;
   }
-  .hamburger { display: none; }
 
   .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
   .projects-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -979,7 +1084,7 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
   .section { padding: 2rem 0; }
-  .hero { padding: 4.5rem 0.85rem 1.5rem; }
+  .hero { padding: 4.8rem 0.85rem 1.6rem; }
   .skills-grid { grid-template-columns: 1fr; }
   .album-grid { grid-template-columns: 1fr; }
   .tools-grid { grid-template-columns: repeat(3, 1fr); }
