@@ -1,27 +1,55 @@
 /* ═══════════════════════════════════════════════
-   TERRY SEN PORTFOLIO — script.js
+   TERRY ZEN PORTFOLIO — script.js
    ═══════════════════════════════════════════════ */
 
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 /* ── 1. NAVBAR: scroll behaviour + active link + hamburger ── */
-const navbar    = document.getElementById('navbar');
-const hamburger = document.getElementById('hamburger');
-const navLinks  = document.getElementById('navLinks');
-const allLinks  = document.querySelectorAll('.nav-link');
+const navbar     = document.getElementById('navbar');
+const hamburger  = document.getElementById('hamburger');
+const navLinks   = document.getElementById('navLinks');
+const backToTop  = document.getElementById('backToTop');
+const allLinks   = [...document.querySelectorAll('.nav-link')];
+const sections   = [...document.querySelectorAll('section[id]')];
 
-window.addEventListener('scroll', () => {
-  // Scrolled class for glass effect
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
+/* Cache section offsets once instead of measuring the layout on every scroll. */
+let sectionTops = [];
+function measureSections() {
+  sectionTops = sections.map(sec => ({ id: sec.id, top: sec.offsetTop }));
+}
+measureSections();
+window.addEventListener('load', measureSections);
+window.addEventListener('resize', measureSections, { passive: true });
 
-  // Back-to-top button
-  document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 300);
+function highlightNav() {
+  const y = window.scrollY || window.pageYOffset;
+  let current = '';
+  for (let i = 0; i < sectionTops.length; i++) {
+    if (y >= sectionTops[i].top - 120) current = sectionTops[i].id;
+  }
+  for (let i = 0; i < allLinks.length; i++) {
+    allLinks[i].classList.toggle('active', allLinks[i].getAttribute('href') === `#${current}`);
+  }
+}
 
-  // Highlight active section
+let scrollTicking = false;
+function onScroll() {
+  const y = window.scrollY || window.pageYOffset;
+  navbar.classList.toggle('scrolled', y > 40);
+  backToTop.classList.toggle('visible', y > 300);
   highlightNav();
-});
+  scrollTicking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    scrollTicking = true;
+    requestAnimationFrame(onScroll);
+  }
+}, { passive: true });
 
 function toggleMenu(forceState) {
-  const willOpen = typeof forceState === 'boolean' 
-    ? forceState 
+  const willOpen = typeof forceState === 'boolean'
+    ? forceState
     : !navLinks.classList.contains('open');
 
   hamburger.classList.toggle('open', willOpen);
@@ -62,19 +90,6 @@ window.addEventListener('resize', () => {
   }
 });
 
-function highlightNav() {
-  const sections = document.querySelectorAll('section[id]');
-  let current = '';
-  sections.forEach(sec => {
-    if (window.scrollY >= sec.offsetTop - 120) {
-      current = sec.id;
-    }
-  });
-  allLinks.forEach(link => {
-    link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-  });
-}
-
 
 /* ── 2. HERO FADE-IN (immediate on load) ── */
 window.addEventListener('DOMContentLoaded', () => {
@@ -92,11 +107,11 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Trigger skill bars if inside the wrapper
-      const fills = entry.target.querySelectorAll('.skill-bar-fill');
-      fills.forEach(fill => {
+      // Trigger skill bars if inside the element
+      entry.target.querySelectorAll('.skill-bar-fill').forEach(fill => {
         fill.style.width = fill.dataset.width + '%';
       });
+      revealObserver.unobserve(entry.target);
     }
   });
 }, {
@@ -106,29 +121,13 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Also observe the skill bars wrapper itself
-const barsWrapper = document.querySelector('.skill-bars-wrapper');
-if (barsWrapper) {
-  const barsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.skill-bar-fill').forEach(fill => {
-          fill.style.width = fill.dataset.width + '%';
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-  barsObserver.observe(barsWrapper);
-}
-
 
 /* ── 4. PROJECT FILTER ── */
-const filterBtns   = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
+const filterBtns   = [...document.querySelectorAll('.filter-btn')];
+const projectCards = [...document.querySelectorAll('.project-card')];
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    // Active state
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
@@ -192,36 +191,51 @@ document.addEventListener('keydown', e => {
 lightboxImg.addEventListener('click', e => e.stopPropagation());
 
 
-/* ── 6. SMOOTH PARALLAX on orbs (subtle mouse move) ── */
-document.addEventListener('mousemove', e => {
-  const { clientX: x, clientY: y } = e;
-  const cx = window.innerWidth  / 2;
-  const cy = window.innerHeight / 2;
-  const dx = (x - cx) / cx;
-  const dy = (y - cy) / cy;
+/* ── 6. POINTER EFFECTS (orbs parallax + cursor glow) ──
+   One rAF-throttled listener, skips touch devices / reduced motion,
+   and writes transform-only changes so no layout is recomputed. */
+const orbs = [...document.querySelectorAll('.orb')];
+const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  document.querySelectorAll('.orb').forEach((orb, i) => {
-    const factor = (i + 1) * 12;
-    orb.style.transform = `translate(${dx * factor}px, ${dy * factor}px)`;
-  });
-});
+if (canHover && !reduceMotion && orbs.length) {
+  const cursorGlow = document.createElement('div');
+  cursorGlow.style.cssText = `
+    position: fixed;
+    top: 0; left: 0;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    transform: translate3d(-9999px, -9999px, 0) translate(-50%,-50%);
+    will-change: transform;
+  `;
+  document.body.appendChild(cursorGlow);
 
+  let mx = 0, my = 0, pointerTicking = false;
 
-/* ── 8. CURSOR GLOW (optional subtle glow that follows cursor) ── */
-const cursorGlow = document.createElement('div');
-cursorGlow.style.cssText = `
-  position: fixed;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  transform: translate(-50%,-50%);
-  transition: left 0.1s ease, top 0.1s ease;
-`;
-document.body.appendChild(cursorGlow);
+  function applyPointerEffects() {
+    const cx = window.innerWidth  / 2;
+    const cy = window.innerHeight / 2;
+    const dx = (mx - cx) / cx;
+    const dy = (my - cy) / cy;
 
-document.addEventListener('mousemove', e => {
-  cursorGlow.style.left = e.clientX + 'px';
-  cursorGlow.style.top  = e.clientY + 'px';
-});
+    for (let i = 0; i < orbs.length; i++) {
+      const factor = (i + 1) * 12;
+      orbs[i].style.transform = `translate3d(${dx * factor}px, ${dy * factor}px, 0)`;
+    }
+    cursorGlow.style.transform =
+      `translate3d(${mx}px, ${my}px, 0) translate(-50%,-50%)`;
+
+    pointerTicking = false;
+  }
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    if (!pointerTicking) {
+      pointerTicking = true;
+      requestAnimationFrame(applyPointerEffects);
+    }
+  }, { passive: true });
+}
