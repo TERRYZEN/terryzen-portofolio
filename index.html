@@ -5,17 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terry Zen | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!--
+    Google Fonts (Inter + Space Grotesk) removed: style.css uses the
+    system-ui font stack, so those files were downloaded and never used.
+  -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://vriaehdcmdsgisvueqas.supabase.co" />
+  <!-- Remix Icons: fetched without blocking the first paint -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <!-- Remix Icons -->
-  <link
+    rel="preload"
+    as="style"
     href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
-    rel="stylesheet"
+    onload="this.onload=null;this.rel='stylesheet'"
   />
+  <noscript>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  </noscript>
 </head>
 <body>
 
@@ -84,7 +89,7 @@
               assets/images/profile.jpg
               Then uncomment the <img> tag below and remove the emoji div.
             -->
-            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/assets/profile.jpeg" alt="Terry Sen" class="avatar-img" />
+            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/assets/profile.jpeg" alt="Terry Sen" class="avatar-img" width="171" height="171" decoding="async" />
           </div>
           <h3 class="about-name">Omar Terry Putra</h3>
           <p class="about-bio-text">
@@ -178,49 +183,49 @@
           -->
           <div class="tool-card glass-card reveal">
             <div class="tool-logo">
-              <img src="assets/logos/canva.png" alt="Canva" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <img src="assets/logos/canva.webp" alt="Canva" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
               <i class="ri-palette-line tool-fallback" style="display:none"></i>
             </div>
             <span class="tool-name">Canva</span>
           </div>
           <div class="tool-card glass-card reveal delay-1">
             <div class="tool-logo">
-              <img src="assets/logos/capcut.png" alt="CapCut" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <img src="assets/logos/capcut.webp" alt="CapCut" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
               <i class="ri-scissors-cut-line tool-fallback" style="display:none"></i>
             </div>
             <span class="tool-name">CapCut</span>
           </div>
           <div class="tool-card glass-card reveal delay-2">
             <div class="tool-logo">
-              <img src="assets/logos/affinity.webp" alt="Affinity" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <img src="assets/logos/affinity.webp" alt="Affinity" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
               <i class="ri-stack-line tool-fallback" style="display:none"></i>
             </div>
             <span class="tool-name">Affinity</span>
           </div>
           <div class="tool-card glass-card reveal delay-3">
             <div class="tool-logo">
-              <img src="assets/logos/lightroom.webp" alt="Adobe Lightroom" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <img src="assets/logos/lightroom.webp" alt="Adobe Lightroom" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
               <i class="ri-camera-lens-line tool-fallback" style="display:none"></i>
             </div>
             <span class="tool-name">Lightroom</span>
           </div>
           <div class="tool-card glass-card reveal delay-1">
             <div class="tool-logo">
-              <img src="assets/logos/snapseed.jpg" alt="Snapseed" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <img src="assets/logos/snapseed.webp" alt="Snapseed" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
               <i class="ri-image-edit-line tool-fallback" style="display:none"></i>
             </div>
             <span class="tool-name">Snapseed</span>
           </div>
           <div class="tool-card glass-card reveal delay-2">
             <div class="tool-logo">
-              <img src="assets/logos/picsart.png" alt="PicsArt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <img src="assets/logos/picsart.webp" alt="PicsArt" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
               <i class="ri-brush-line tool-fallback" style="display:none"></i>
             </div>
             <span class="tool-name">PicsArt</span>
           </div>
           <div class="tool-card glass-card reveal delay-3">
             <div class="tool-logo">
-              <img src="assets/logos/vscode.png" alt="VS Code" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <img src="assets/logos/vscode.webp" alt="VS Code" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
               <i class="ri-code-s-slash-line tool-fallback" style="display:none"></i>
             </div>
             <span class="tool-name">VS Code</span>
@@ -360,7 +365,7 @@
 
         <div class="project-card glass-card reveal" data-category="design">
           <div class="project-img-wrap">
-            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project1.png" alt="Project 1"
+            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project1.png" alt="Project 1" loading="lazy" decoding="async"
                  onerror="this.parentElement.classList.add('no-img')" />
             <div class="project-overlay">
               <a href="#" class="btn btn-sm btn-glass" target="_blank">
@@ -381,7 +386,7 @@
 
         <div class="project-card glass-card reveal delay-1" data-category="photo">
           <div class="project-img-wrap">
-            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project2.png" alt="Project 2"
+            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project2.png" alt="Project 2" loading="lazy" decoding="async"
                  onerror="this.parentElement.classList.add('no-img')" />
             <div class="project-overlay">
               <a href="#" class="btn btn-sm btn-glass" target="_blank">
@@ -403,7 +408,7 @@
 
         <div class="project-card glass-card reveal delay-2" data-category="web">
           <div class="project-img-wrap">
-            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project3.png" alt="Project 3"
+            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project3.png" alt="Project 3" loading="lazy" decoding="async"
                  onerror="this.parentElement.classList.add('no-img')" />
             <div class="project-overlay">
               <a href="https://github.com/TERRYZEN/DompetGueh" class="btn btn-sm btn-glass" target="_blank">
@@ -428,7 +433,7 @@
 
         <div class="project-card glass-card reveal delay-3" data-category="video">
           <div class="project-img-wrap">
-            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project4.webp" alt="Project 4"
+            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project4.webp" alt="Project 4" loading="lazy" decoding="async"
                  onerror="this.parentElement.classList.add('no-img')" />
             <div class="project-overlay">
               <a href="https://youtu.be/m09sRIaZWaA" class="btn btn-sm btn-glass" target="_blank">
@@ -449,7 +454,7 @@
 
         <div class="project-card glass-card reveal delay-1" data-category="design">
           <div class="project-img-wrap">
-            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project5.png" alt="Project 5"
+            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project5.png" alt="Project 5" loading="lazy" decoding="async"
                  onerror="this.parentElement.classList.add('no-img')" />
             <div class="project-overlay">
               <a href="#" class="btn btn-sm btn-glass" target="_blank">
@@ -472,7 +477,7 @@
 
         <div class="project-card glass-card reveal delay-2" data-category="photo">
           <div class="project-img-wrap">
-            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project6.png" alt="Project 6"
+            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project6.png" alt="Project 6" loading="lazy" decoding="async"
                  onerror="this.parentElement.classList.add('no-img')" />
             <div class="project-overlay">
               <a href="#" class="btn btn-sm btn-glass" target="_blank">
@@ -488,6 +493,28 @@
               <span class="tag">PicsArt</span>
               <span class="tag">Affinity</span>
               <span class="tag">Canva</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass-card reveal delay-2" data-category="web">
+          <div class="project-img-wrap">
+            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/Project/project7.png" alt="Project 7" loading="lazy" decoding="async"
+                 onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-overlay">
+              <a href="https://github.com/TERRYZEN/Pathz" class="btn btn-sm btn-glass" target="_blank">
+                <i class="ri-eye-line"></i> Lihat
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Apps</span>
+            <h3 class="project-title">Pathz</h3>
+            <p class="project-desc">Aplikasi untuk kompres video MP4, MKV, dan MOV menjadi lebih ringkas.</p>
+            <div class="project-tags">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Jetpack Compose</span>
+              <span class="tag">R8 Optimization</span>
             </div>
           </div>
         </div>
@@ -514,7 +541,7 @@
 
         <div class="cert-card glass-card reveal" onclick="openLightbox(this)">
           <div class="cert-img-wrap">
-            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/assets/cert1.jpeg" alt="Certificate 1"
+            <img src="https://vriaehdcmdsgisvueqas.supabase.co/storage/v1/object/public/assets/cert1.jpeg" alt="Certificate 1" loading="lazy" decoding="async"
                  onerror="this.parentElement.classList.add('no-cert')" />
             <div class="cert-overlay"><i class="ri-zoom-in-line"></i></div>
           </div>
